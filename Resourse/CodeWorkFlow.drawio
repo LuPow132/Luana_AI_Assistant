@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-08-17T15:00:24.650Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="V8H8ut9zHfUaOISHV0IF" version="21.6.8" type="github">
+<mxfile host="app.diagrams.net" modified="2023-08-17T15:09:38.137Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="FFzF-0CZ1dwkGpIYkVqp" version="21.6.8" type="github">
   <diagram name="Page-1" id="GwgGnx4j7lu23LvewV51">
-    <mxGraphModel dx="1050" dy="1679" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1615" dy="1991" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -8,7 +8,7 @@
           <mxGeometry x="360" y="-410" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="qoHN5rkRYO1P3XWgeGAL-8" value="" style="group" vertex="1" connectable="0" parent="1">
-          <mxGeometry x="60" y="-340" width="180" height="320" as="geometry" />
+          <mxGeometry x="50" y="-290" width="180" height="320" as="geometry" />
         </mxCell>
         <mxCell id="qoHN5rkRYO1P3XWgeGAL-6" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-8">
           <mxGeometry y="30" width="180" height="290" as="geometry" />
@@ -23,7 +23,7 @@
           <mxGeometry x="50" width="80" height="30" as="geometry" />
         </mxCell>
         <mxCell id="qoHN5rkRYO1P3XWgeGAL-9" value="" style="group" vertex="1" connectable="0" parent="1">
-          <mxGeometry x="60" width="180" height="320" as="geometry" />
+          <mxGeometry x="50" y="70" width="180" height="320" as="geometry" />
         </mxCell>
         <mxCell id="qoHN5rkRYO1P3XWgeGAL-10" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-9">
           <mxGeometry y="30" width="180" height="290" as="geometry" />
@@ -38,7 +38,7 @@
           <mxGeometry x="55" width="70" height="30" as="geometry" />
         </mxCell>
         <mxCell id="qoHN5rkRYO1P3XWgeGAL-20" value="" style="group" vertex="1" connectable="0" parent="1">
-          <mxGeometry x="340" y="-310" width="160" height="130" as="geometry" />
+          <mxGeometry x="660" y="300" width="160" height="130" as="geometry" />
         </mxCell>
         <mxCell id="qoHN5rkRYO1P3XWgeGAL-19" value="" style="group" vertex="1" connectable="0" parent="qoHN5rkRYO1P3XWgeGAL-20">
           <mxGeometry width="160" height="130" as="geometry" />
@@ -52,47 +52,80 @@
         <mxCell id="qoHN5rkRYO1P3XWgeGAL-14" value="Get responsed based on prompt" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-20">
           <mxGeometry x="10" y="40" width="140" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qoHN5rkRYO1P3XWgeGAL-21" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="335" y="-70" width="685" height="300" as="geometry" />
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-38" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="650" y="-350" width="180" height="320" as="geometry" />
         </mxCell>
-        <mxCell id="qoHN5rkRYO1P3XWgeGAL-23" value="Prompt Processor" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="360" y="-100" width="120" height="30" as="geometry" />
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-39" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-38">
+          <mxGeometry y="30" width="180" height="290" as="geometry" />
         </mxCell>
-        <mxCell id="qoHN5rkRYO1P3XWgeGAL-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="qoHN5rkRYO1P3XWgeGAL-27" target="qoHN5rkRYO1P3XWgeGAL-28">
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-41" value="Store information as Vector DB" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-38">
+          <mxGeometry x="20" y="50" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-42" value="Database" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-38">
+          <mxGeometry x="55" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-43" value="Recall information from Vector DB" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-38">
+          <mxGeometry x="20" y="180" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-46" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="650" y="-30" width="180" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-47" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-46">
+          <mxGeometry y="30" width="180" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-48" value="Open Music {music_name}" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-46">
+          <mxGeometry x="20" y="50" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-49" value="IROBOT ROOM IOT" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-46">
+          <mxGeometry x="25" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-50" value="whatever I can think of as future" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-46">
+          <mxGeometry x="20" y="180" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-60" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="337.5" y="-310" width="165" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-21" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-60">
+          <mxGeometry y="30" width="165" height="730" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-23" value="Prompt Processor" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-60">
+          <mxGeometry x="25" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-28" value="Is it about the past or event reminder?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-60">
+          <mxGeometry x="15" y="50" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-29" value="Is it about current event that happend in room?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-60">
+          <mxGeometry x="5" y="220" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="qoHN5rkRYO1P3XWgeGAL-60" source="qoHN5rkRYO1P3XWgeGAL-28" target="qoHN5rkRYO1P3XWgeGAL-29">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qoHN5rkRYO1P3XWgeGAL-35" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="qoHN5rkRYO1P3XWgeGAL-32">
-          <mxGeometry x="-0.12" y="1" relative="1" as="geometry">
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-55" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="qoHN5rkRYO1P3XWgeGAL-54">
+          <mxGeometry x="-0.2427" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qoHN5rkRYO1P3XWgeGAL-27" value="Is it about event reminder?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="360" y="-50" width="120" height="120" as="geometry" />
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-30" value="Is it about command any IOT thing in Irobot?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-60">
+          <mxGeometry x="5" y="400" width="140" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="qoHN5rkRYO1P3XWgeGAL-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="qoHN5rkRYO1P3XWgeGAL-28" target="qoHN5rkRYO1P3XWgeGAL-29">
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="qoHN5rkRYO1P3XWgeGAL-60" source="qoHN5rkRYO1P3XWgeGAL-29" target="qoHN5rkRYO1P3XWgeGAL-30">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qoHN5rkRYO1P3XWgeGAL-36" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="qoHN5rkRYO1P3XWgeGAL-33">
-          <mxGeometry x="-0.22" y="3" relative="1" as="geometry">
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-57" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="qoHN5rkRYO1P3XWgeGAL-56">
+          <mxGeometry x="-0.2867" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qoHN5rkRYO1P3XWgeGAL-28" value="Is it about the past?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="520" y="-50" width="120" height="120" as="geometry" />
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-44" value="Is it about open music in Irobot room?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-60">
+          <mxGeometry x="5" y="580" width="140" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="qoHN5rkRYO1P3XWgeGAL-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="qoHN5rkRYO1P3XWgeGAL-29" target="qoHN5rkRYO1P3XWgeGAL-30">
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="qoHN5rkRYO1P3XWgeGAL-60" source="qoHN5rkRYO1P3XWgeGAL-30" target="qoHN5rkRYO1P3XWgeGAL-44">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qoHN5rkRYO1P3XWgeGAL-37" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="qoHN5rkRYO1P3XWgeGAL-34">
-          <mxGeometry x="-0.07" y="2" relative="1" as="geometry">
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-59" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="qoHN5rkRYO1P3XWgeGAL-58">
+          <mxGeometry x="-0.22" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="qoHN5rkRYO1P3XWgeGAL-29" value="Is it about current event that happend in room?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="680" y="-60" width="140" height="140" as="geometry" />
-        </mxCell>
-        <mxCell id="qoHN5rkRYO1P3XWgeGAL-30" value="Is it about command any IOT thing in Irobot?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="860" y="-60" width="140" height="140" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

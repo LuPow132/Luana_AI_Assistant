@@ -1,9 +1,99 @@
-<mxfile host="app.diagrams.net" modified="2023-08-17T14:51:51.518Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="yGCs1sPIslQCrB4DZLFl" version="21.6.8" type="github">
+<mxfile host="app.diagrams.net" modified="2023-08-17T15:00:24.650Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36" etag="V8H8ut9zHfUaOISHV0IF" version="21.6.8" type="github">
   <diagram name="Page-1" id="GwgGnx4j7lu23LvewV51">
-    <mxGraphModel dx="1050" dy="579" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1050" dy="1679" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-2" value="Start" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="-410" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-8" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="60" y="-340" width="180" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-6" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-8">
+          <mxGeometry y="30" width="180" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-4" value="Discord User Message" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-8">
+          <mxGeometry x="20" y="60" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-5" value="OpenCV Facerecog and speech to text model" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-8">
+          <mxGeometry x="20" y="190" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-7" value="MainInput" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-8">
+          <mxGeometry x="50" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-9" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="60" width="180" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-10" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-9">
+          <mxGeometry y="30" width="180" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-11" value="OpenCV information&lt;br&gt;(Who when where)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-9">
+          <mxGeometry x="20" y="60" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-12" value="Event Reminder or something(external feature)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-9">
+          <mxGeometry x="20" y="190" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-13" value="SubInput" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-9">
+          <mxGeometry x="55" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-20" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="340" y="-310" width="160" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-19" value="" style="group" vertex="1" connectable="0" parent="qoHN5rkRYO1P3XWgeGAL-20">
+          <mxGeometry width="160" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-16" value="LLM" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-19">
+          <mxGeometry x="55" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-18" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-19">
+          <mxGeometry y="30" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-14" value="Get responsed based on prompt" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="qoHN5rkRYO1P3XWgeGAL-20">
+          <mxGeometry x="10" y="40" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-21" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="335" y="-70" width="685" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-23" value="Prompt Processor" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="360" y="-100" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="qoHN5rkRYO1P3XWgeGAL-27" target="qoHN5rkRYO1P3XWgeGAL-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-35" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="qoHN5rkRYO1P3XWgeGAL-32">
+          <mxGeometry x="-0.12" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-27" value="Is it about event reminder?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="-50" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="qoHN5rkRYO1P3XWgeGAL-28" target="qoHN5rkRYO1P3XWgeGAL-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-36" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="qoHN5rkRYO1P3XWgeGAL-33">
+          <mxGeometry x="-0.22" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-28" value="Is it about the past?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="-50" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="qoHN5rkRYO1P3XWgeGAL-29" target="qoHN5rkRYO1P3XWgeGAL-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-37" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="qoHN5rkRYO1P3XWgeGAL-34">
+          <mxGeometry x="-0.07" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-29" value="Is it about current event that happend in room?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="-60" width="140" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="qoHN5rkRYO1P3XWgeGAL-30" value="Is it about command any IOT thing in Irobot?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="860" y="-60" width="140" height="140" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>

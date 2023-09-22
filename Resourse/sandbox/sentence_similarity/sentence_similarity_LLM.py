@@ -9,7 +9,7 @@ conversationDB = []
 
 
 def conversationLoad():
-    global conversationDB, vectordb
+    global conversationDB, vectordb, top_k
     # Replace 'your_file.jsonl' with the actual filename
     with open('source/conversation.jsonl', 'r') as file:
         for line in file:
@@ -17,15 +17,10 @@ def conversationLoad():
             data = json.loads(line)
             conversationDB.append(data['person'] + ":" + data['message'])
     vectordb = model.encode(conversationDB, convert_to_tensor=True)
-
-conversationLoad()
-while True:
-    # Query sentences:
-    query = input("input keyword: ")
-
-
-    # Find the closest 5 sentences of the corpus for each query sentence based on cosine similarity
     top_k = min(5, len(vectordb))
+
+def find_similarity_prompt(query):
+    # Find the closest 5 sentences of the corpus for each query sentence based on cosine similarity
     query_embedding = model.encode(query, convert_to_tensor=True)
 
     # We use cosine-similarity and torch.topk to find the highest 5 scores
@@ -38,3 +33,10 @@ while True:
 
     for score, idx in zip(top_results[0], top_results[1]):
         print(conversationDB[idx], "(Score: {:.4f})".format(score))
+
+conversationLoad()
+
+while True:
+    # Query sentences:
+    query = input("input keyword: ")
+    find_similarity_prompt(query)

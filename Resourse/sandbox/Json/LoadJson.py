@@ -1,26 +1,15 @@
 import json
 
-def readConversation(file_location):
-    conversation = []
-    with open(file_location, "r") as jsonl_file:
-        for line in jsonl_file:
-            try:
-                message = json.loads(line)
-                conversation.append(message)
-            except json.JSONDecodeError as e:
-                print(f"Error decoding JSON: {e}")
-    
-    return conversation
+# Initialize an empty list to store the dictionaries
+data_list = []
 
-def printConversation(conversation):
-    # Print the conversation
-    for message in conversation:
-        person = message["person"]
-        text = message["message"]
-        print(f"{person}: {text}")
+# Replace 'your_file.jsonl' with the actual filename
+with open('source/conversation.jsonl', 'r') as file:
+    for line in file:
+        # Load each line as a JSON object and append it to the list
+        data = json.loads(line)
+        data_list.append(data['person'] + ":" + data['message'])
 
-# Read the conversation from the JSON Lines file
-conversation = readConversation("conversation.jsonl")
-
-# Print the conversation
-printConversation(conversation)
+# Now, data_list contains a list of dictionaries
+for i in range(len(data_list)):
+    print(data_list[i])

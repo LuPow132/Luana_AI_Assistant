@@ -34,6 +34,16 @@ def find_similarity_prompt(query):
     for score, idx in zip(top_results[0], top_results[1]):
         print(conversationDB[idx], "(Score: {:.4f})".format(score))
 
+#{"person": "A", "message": A} file format
+def appendConversation(message, file_location):
+    try:
+        # Open the file in append mode and create it if it doesn't exist
+        with open(file_location, "a") as jsonl_file:
+            # Write the JSON object on a new line
+            jsonl_file.write(json.dumps(message) + '\n')
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
+        
 conversationLoad()
 
 while True:

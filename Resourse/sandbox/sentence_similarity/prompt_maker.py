@@ -25,7 +25,15 @@ class conversation_Manger:
                 conversationDB.append(data['person'] + ":" + data['message'])
 
         #embedding list to tensor
-        vectordb = model.encode(conversationDB, convert_to_tensor=True)
+        vectordb = model.encode(conversationDB, convert_to_tensor=True,show_progress_bar=True)
+        top_k = min(relate_prompt_amount, len(vectordb))
+
+    def conversationAppend(person,message):
+        global vectordb, top_k
+        text = f'{person}:{message}'
+
+        #embedding list to tensor
+        vectordb = model.encode(text, convert_to_tensor=True,show_progress_bar=True)
         top_k = min(relate_prompt_amount, len(vectordb))
 
     #Find relate prompt from Tensor
@@ -54,14 +62,15 @@ class conversation_Manger:
             print(f"An error occurred: {str(e)}")
             
     def prompt_maker(keyword):
-        conversation_Manger.conversationLoad()
+        
 
         relate_prompt = conversation_Manger.find_similarity_prompt(keyword)
 
         text = f"You name is Luanachan. She is a Vtuber that made by LuPow to help assit IRobot member like doing research, be their friend, open any song. Luana personality is Kind, Funny and cute.\nhere is the prompt about past conversation you can use if it relate \n\n{relate_prompt}"
         return text
     
-
+#Load pass conversation at the start
+conversation_Manger.conversationLoad()
   
 while True: 
     # Query sentences:

@@ -28,7 +28,7 @@ class conversation_Manger:
         vectordb = model.encode(conversationDB, convert_to_tensor=True,show_progress_bar=True)
         top_k = min(relate_prompt_amount, len(vectordb))
 
-    def conversationAppend(person,message):
+    def appendConversation_to_Vector(person,message):
         global vectordb, top_k
         text = f'{person}:{message}'
 
@@ -52,7 +52,7 @@ class conversation_Manger:
         return result
 
     #{"person": "A", "message": A} file format
-    def appendConversation(message, file_location):
+    def appendConversation_to_Json(message, file_location):
         try:
             # Open the file in append mode and create it if it doesn't exist
             with open(file_location, "a") as jsonl_file:

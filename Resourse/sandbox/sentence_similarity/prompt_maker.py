@@ -2,7 +2,7 @@ from sentence_transformers import SentenceTransformer, util
 import torch
 import json
 
-
+#defind LLM model for find relate prompt
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
 #Defind conversationDB as List
@@ -17,6 +17,7 @@ class conversation_Manger:
     def conversationLoad():
         global conversationDB, vectordb, top_k
 
+            
         #Load file
         with open(file_location, 'r') as file:
             for line in file:
@@ -27,13 +28,9 @@ class conversation_Manger:
         #embedding list to tensor
         vectordb = model.encode(conversationDB, convert_to_tensor=True,show_progress_bar=True)
         top_k = min(relate_prompt_amount, len(vectordb))
+        print(len(vectordb))
+        print(top_k)
 
-    def appendConversation_to_Vector(person,message):
-        global vectordb, top_k
-        text = f'{person}:{message}'
-
-        #embedding list to tensor
-        vectordb = model.encode(text, convert_to_tensor=True,show_progress_bar=True)
 
     #Find relate prompt from Tensor
     def find_similarity_prompt(query):
@@ -42,10 +39,9 @@ class conversation_Manger:
 
         # We use cosine-similarity and torch.topk to find the highest scores
         cos_scores = util.cos_sim(query_embedding, vectordb)[0]
-        print(f'cos_scores{cos_scores}')
-        print(f'top_k{(top_k)}')
         top_results = torch.topk(cos_scores, k=top_k)
-        print(f'top_results{top_results}')
+
+        print(f"query_embed\tcos\ttop_result\tvector_db\n\n{len(query_embedding)}\t\t{len(cos_scores)}\t{len(top_results)}\t\t{len(vectordb)}\n\n")
 
         #return info
         result = ""
@@ -54,7 +50,7 @@ class conversation_Manger:
         return result
 
     #{"person": "A", "message": A} file format
-    def appendConversation_to_Json(message, file_location):
+    def appendConversation(message, file_location):
         try:
             # Open the file in append mode and create it if it doesn't exist
             with open(file_location, "a") as jsonl_file:
@@ -64,6 +60,7 @@ class conversation_Manger:
             print(f"An error occurred: {str(e)}")
             
     def prompt_maker(keyword):
+        
 
         relate_prompt = conversation_Manger.find_similarity_prompt(keyword)
 
@@ -73,13 +70,7 @@ class conversation_Manger:
 #Load pass conversation at the start
   
 while True: 
-    # Query sentences:
     conversation_Manger.conversationLoad()
-    mode = input("Q = append, E = check")
-    if mode == "Q":
-        person = input("Person:")
-        message = input("Message:")
-        conversation_Manger.appendConversation_to_Vector(person,message)
-    elif mode == "E":
-        query = input("input keyword: ")
-        print(conversation_Manger.prompt_maker(query))
+    # Query sentences:
+    query = input("input keyword: ")
+    print(conversation_Manger.prompt_maker(query))

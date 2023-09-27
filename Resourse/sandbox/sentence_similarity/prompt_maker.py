@@ -17,7 +17,7 @@ class conversation_Manger:
     def conversationLoad():
         global conversationDB, vectordb, top_k
 
-            
+        conversationDB = []
         #Load file
         with open(file_location, 'r') as file:
             for line in file:

@@ -9,7 +9,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 conversationDB = []
 
 #Config
-relate_prompt_amount = 2
+relate_prompt_amount = 3
 file_location = "source/conversation.jsonl"
 
 class conversation_Manger:
@@ -26,10 +26,17 @@ class conversation_Manger:
                 conversationDB.append(data['person'] + ":" + data['message'])
 
         #embedding list to tensor
+        torch.set_printoptions(threshold=10000)
         vectordb = model.encode(conversationDB, convert_to_tensor=True,show_progress_bar=True)
+        print("BF")
+        print(vectordb)
+        vectordb = torch.cat((vectordb,vectordb))
+        print("AF")
+        print(vectordb)
         top_k = min(relate_prompt_amount, len(vectordb))
         print(len(vectordb))
         print(top_k)
+        conversationDB
 
 
     #Find relate prompt from Tensor
@@ -60,8 +67,6 @@ class conversation_Manger:
             print(f"An error occurred: {str(e)}")
             
     def prompt_maker(keyword):
-        
-
         relate_prompt = conversation_Manger.find_similarity_prompt(keyword)
 
         text = f"You name is Luanachan. She is a Vtuber that made by LuPow to help assit IRobot member like doing research, be their friend, open any song. Luana personality is Kind, Funny and cute.\nhere is the prompt about past conversation you can use if it relate \n\n{relate_prompt}"

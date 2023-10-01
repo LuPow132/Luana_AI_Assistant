@@ -9,7 +9,7 @@ model = SentenceTransformer('all-MiniLM-L6-v2')
 conversationDB = []
 
 #Config
-relate_prompt_amount = 3
+relate_prompt_amount = 2
 file_location = "source/conversation.jsonl"
 
 class conversation_Manger:
@@ -26,17 +26,14 @@ class conversation_Manger:
                 conversationDB.append(data['person'] + ":" + data['message'])
 
         #embedding list to tensor
-        torch.set_printoptions(threshold=10000)
         vectordb = model.encode(conversationDB, convert_to_tensor=True,show_progress_bar=True)
-        print("BF")
-        print(vectordb)
-        vectordb = torch.cat((vectordb,vectordb))
-        print("AF")
-        print(vectordb)
+        vectordb_append_text = ["LuPow:I love big mac","LuPow:Who are you guys","LuPow:You seem gay to me"]
+        vectordb_append = model.encode(vectordb_append_text, convert_to_tensor=True,show_progress_bar=True)
+        conversationDB += vectordb_append_text
+        vectordb = torch.cat((vectordb,vectordb_append),dim=0)
         top_k = min(relate_prompt_amount, len(vectordb))
         print(len(vectordb))
         print(top_k)
-        conversationDB
 
 
     #Find relate prompt from Tensor
@@ -48,16 +45,17 @@ class conversation_Manger:
         cos_scores = util.cos_sim(query_embedding, vectordb)[0]
         top_results = torch.topk(cos_scores, k=top_k)
 
-        print(f"query_embed\tcos\ttop_result\tvector_db\n\n{len(query_embedding)}\t\t{len(cos_scores)}\t{len(top_results)}\t\t{len(vectordb)}\n\n")
+        # print(f"query_embed\tcos\ttop_result\tvector_db\n\n{len(query_embedding)}\t\t{len(cos_scores)}\t{len(top_results)}\t\t{len(vectordb)}\n\n")
 
         #return info
         result = ""
         for score, idx in zip(top_results[0], top_results[1]):
+            print(idx)
             result += f'{conversationDB[idx]}\n'
         return result
 
     #{"person": "A", "message": A} file format
-    def appendConversation(message, file_location):
+    def appendConversation_to_Json(message, file_location):
         try:
             # Open the file in append mode and create it if it doesn't exist
             with open(file_location, "a") as jsonl_file:
@@ -65,17 +63,19 @@ class conversation_Manger:
                 jsonl_file.write(json.dumps(message) + '\n')
         except Exception as e:
             print(f"An error occurred: {str(e)}")
-            
+        
     def prompt_maker(keyword):
+        
+
         relate_prompt = conversation_Manger.find_similarity_prompt(keyword)
 
-        text = f"You name is Luanachan. She is a Vtuber that made by LuPow to help assit IRobot member like doing research, be their friend, open any song. Luana personality is Kind, Funny and cute.\nhere is the prompt about past conversation you can use if it relate \n\n{relate_prompt}"
-        return text
+        # text = f"You name is Luanachan. She is a Vtuber that made by LuPow to help assit IRobot member like doing research, be their friend, open any song. Luana personality is Kind, Funny and cute.\nhere is the prompt about past conversation you can use if it relate \n\n{relate_prompt}"
+        return relate_prompt
     
 #Load pass conversation at the start
   
+conversation_Manger.conversationLoad()
 while True: 
-    conversation_Manger.conversationLoad()
     # Query sentences:
     query = input("input keyword: ")
     print(conversation_Manger.prompt_maker(query))

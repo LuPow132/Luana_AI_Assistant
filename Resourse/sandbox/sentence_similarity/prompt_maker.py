@@ -27,13 +27,21 @@ class conversation_Manger:
 
         #embedding list to tensor
         vectordb = model.encode(conversationDB, convert_to_tensor=True,show_progress_bar=True)
-        vectordb_append_text = ["LuPow:I love big mac","LuPow:Who are you guys","LuPow:You seem gay to me"]
+        
+        top_k = min(relate_prompt_amount, len(vectordb))
+        # print(len(vectordb))
+        # print(top_k)
+        
+        
+
+    def appendConversation_to_vectordb(person , message):
+        global conversationDB,vectordb
+        # conversation_Manger.appendConversation_to_Json()
+        text = f'{person}:{message}'
+        vectordb_append_text = [text]
         vectordb_append = model.encode(vectordb_append_text, convert_to_tensor=True,show_progress_bar=True)
         conversationDB += vectordb_append_text
         vectordb = torch.cat((vectordb,vectordb_append),dim=0)
-        top_k = min(relate_prompt_amount, len(vectordb))
-        print(len(vectordb))
-        print(top_k)
 
 
     #Find relate prompt from Tensor
@@ -55,12 +63,13 @@ class conversation_Manger:
         return result
 
     #{"person": "A", "message": A} file format
-    def appendConversation_to_Json(message, file_location):
+    def appendConversation_to_Json(person:str,message:str, file_location:str):
+        text = f'{person}:{message}'
         try:
             # Open the file in append mode and create it if it doesn't exist
             with open(file_location, "a") as jsonl_file:
                 # Write the JSON object on a new line
-                jsonl_file.write(json.dumps(message) + '\n')
+                jsonl_file.write(json.dumps(text) + '\n')
         except Exception as e:
             print(f"An error occurred: {str(e)}")
         
@@ -77,5 +86,12 @@ class conversation_Manger:
 conversation_Manger.conversationLoad()
 while True: 
     # Query sentences:
-    query = input("input keyword: ")
-    print(conversation_Manger.prompt_maker(query))
+    mode = input("Mode select Q = append, E = search ")
+    if mode == 'e':
+        query = input("input keyword: ")
+        print(conversation_Manger.prompt_maker(query))
+    if mode == 'q':
+        person = input("person: ")
+        message = input("message: ")
+        conversation_Manger.appendConversation_to_vectordb(person,message)
+        print("success")

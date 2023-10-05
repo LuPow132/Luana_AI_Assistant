@@ -7,6 +7,8 @@ import asyncio
 import aiohttp
 from sentence_transformers import SentenceTransformer, util
 import torch
+import threading
+import time
 
 #import configuration
 import configuration
@@ -17,6 +19,9 @@ context = configuration.prompt_personality
 model = SentenceTransformer(configuration.llm_model)
 relate_prompt_amount = configuration.relate_prompt_amount
 file_location = configuration.conversation_log_location
+example_conversation = configuration.example_conversation
+Username = configuration.Username
+context_amount = configuration.context_load_amount
 
 #defind variable
 conversationDB = []
@@ -57,11 +62,16 @@ class LLM:
         return response_text
     
     def chat(message):
+        global prompt,result
         prompt = conversation_Manger.prompt_maker(message)
         result = asyncio.run(LLM.api(prompt))
         print(result)
-        conversation_Manger.appendConversation_to_Json("User",message,file_location)
-        conversation_Manger.appendConversation_to_Json(name,result,file_location)
+        
+    def save_chat():
+        threading.Thread(conversation_Manger.appendConversation_to_Json(Username,message,file_location))
+        threading.Thread(conversation_Manger.appendConversation_to_Json(name,result,file_location))
+        threading.Thread(conversation_Manger.appendConversation_to_vectordb(Username,message))
+        threading.Thread(conversation_Manger.appendConversation_to_vectordb(name,result))
 
 
     
@@ -74,11 +84,10 @@ class conversation_Manger:
         #make conversationDB to empty
         conversationDB = []
 
-        #Load file from jsonl to list
-        with open(file_location, 'r') as file:
+        with open(file_location, 'r', encoding='utf-8') as file:
+        # Read each line in the file and append it to the list
             for line in file:
-                data = json.loads(line)
-                conversationDB.append(data['person'] + ":" + data['message'])
+                conversationDB.append(line.strip())
 
         #embedding list to tensor
         vectordb = model.encode(conversationDB, convert_to_tensor=True,show_progress_bar=True)
@@ -94,7 +103,7 @@ class conversation_Manger:
         vectordb_append_text = [f'{person}:{message}'] 
 
         #encode it to vector
-        vectordb_append = model.encode(vectordb_append_text, convert_to_tensor=True,show_progress_bar=True)
+        vectordb_append = model.encode(vectordb_append_text, convert_to_tensor=True)
         
         #merge 2 vector and 2 list into one vector and one list
         conversationDB += vectordb_append_text
@@ -102,15 +111,11 @@ class conversation_Manger:
 
     #{"person": "A", "message": A} file format
     def appendConversation_to_Json(person, message, file_location):
-        text =  str(f'{"person": {person}, "message": {message}}')
-        print(text)
-        try:
-            # Open the file in append mode and create it if it doesn't exist
-            with open(file_location, "a") as jsonl_file:
-                # Write the JSON object on a new line
-                jsonl_file.write(text + '\n')
-        except Exception as e:
-            print(f"An error occurred: {str(e)}")
+        text =  f'{person}:{message}'
+        # Open the file in append mode ('a')
+        with open(file_location, 'a', encoding='utf-8') as file:
+            # Write the new line to the file, including a newline character '\n'
+            file.write(text + '\n')
 
     #Find relate prompt from Tensor
     def find_similarity_prompt(query):
@@ -126,20 +131,37 @@ class conversation_Manger:
         #return info
         result = ""
         for score, idx in zip(top_results[0], top_results[1]):
-            print(idx)
             result += f'{conversationDB[idx]}\n'
         return result
 
+    def context_Load():
+        # Open the file in read mode
+        with open(file_location, 'r', encoding='utf-8') as file:
+            # Read all lines from the file and append them to the list
+            all_lines = file.readlines()
+
+        context_amount_k = min(len(all_lines),context_amount)
+        # Extract the last two lines from the list
+        if len(all_lines) >= context_amount_k:
+            last_lines = all_lines[-context_amount_k:]
+
+        return last_lines
         
     def prompt_maker(keyword):
         relate_prompt = conversation_Manger.find_similarity_prompt(keyword)
+        context_past = "".join(conversation_Manger.context_Load())
 
-        text = f"{context} \n\n{relate_prompt} \nUser:{keyword} \n{name}:"
+        # text = f"{context} \n\nThis is a relate prompt you can use if it relate:\n{relate_prompt} \nThis is an example of how should you responsed:\n{example_conversation}\n\nNow answer to this conversation.\n{context_past}{Username}:{keyword} \n{name}:"
+        text = f"{context} \n\nThis is a relate prompt you can use if it relate:\n{relate_prompt} \nNow answer to this conversation.\n{example_conversation}\n{context_past}{Username}:{keyword} \n{name}:"
+        # print("-")
+        # print(text)
+        # print("-")
         return text
     
 conversation_Manger.conversationLoad()
 while True:
     message = input("User: ")
+    start_time = time.time()
     LLM.chat(message)
-#to calling LLM use
-# asyncio.run(LLM_api(prompt))
+    print(f'{round(time.time()-start_time,3)}s')
+    LLM.save_chat()
